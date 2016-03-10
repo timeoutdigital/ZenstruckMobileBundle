@@ -19,11 +19,11 @@ class MobileExtension extends \Twig_Extension
 
     public function getFunctions()
     {
-        return array(
-            'zenstruck_mobile_url' => new \Twig_Function_Method($this, 'getMobileUrl', array('is_safe' => array('html'))),
-            'zenstruck_mobile_full_url' => new \Twig_Function_Method($this, 'getFullUrl', array('is_safe' => array('html'))),
-            'zenstruck_mobile_is_mobile' => new \Twig_Function_Method($this, 'isMobile', array('is_safe' => array('html')))
-        );
+        return [
+            new \Twig_SimpleFunction('zenstruck_mobile_url', [$this, 'getMobileUrl'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('zenstruck_mobile_full_url', [$this, 'getFullUrl'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('zenstruck_mobile_is_mobile', [$this, 'isMobile'], ['is_safe' => ['html']]),
+        ];
     }
 
     public function isMobile()
